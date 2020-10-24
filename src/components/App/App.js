@@ -29,8 +29,22 @@ class App extends Component {
           });    
         }).catch( (error) => {
           console.log(error); //log error
-          alert('something went wrong'); // throw an alert for user
+          alert('failed to process request'); // throw an alert for user
         });
+  }
+
+  putItemLikeCount = (itemID) =>{
+    console.log('PUT /gallery started');
+    axios({
+      method: 'PUT',
+      url: `/gallery/like/${itemID}`
+    }).then( (response) => {
+      console.log('PUT /gallery success', response);
+      this.getGalleryArray(); // after likes updated, updated client data
+    }).catch( (error) => {
+      console.log('error');
+      alert('failed to process request')
+    })
   }
 
   render() {
@@ -40,7 +54,7 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <GalleryList gallery={this.state.galleryArray}/>
+        <GalleryList gallery={this.state.galleryArray} updateLike={this.putItemLikeCount}/>
       </div>
     );
   }
