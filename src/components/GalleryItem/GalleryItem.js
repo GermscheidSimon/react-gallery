@@ -18,7 +18,7 @@ class GalleryItem extends Component {
         if (this.state.renderImg) {
             return <img src={this.props.item.path} alt={this.props.item.name} className="itemBox" onClick={this.toggleRenderState}></img>
         } else {
-            return <div className="itemBox" onClick={this.toggleRenderState}>tesxsljflsdjflsdlfjslkdfsljdflsjdflkjsdlfjsldflksjdflksjdlfksjdlkfjslkdfjlsdfsdf sdfjsldf sldkjf</div>
+        return <div className="itemBox" onClick={this.toggleRenderState}>{this.props.item.description}</div>
         }
     }
 
@@ -28,7 +28,7 @@ class GalleryItem extends Component {
             <div className="galItemFrame" key={this.props.item.id}>
                 {this.renderitemBox()}
                     <button onClick={() => this.props.updateLike(this.props.item.id)}>likes</button> {/* accessing PUT request function in App, passing in item ID */}
-                <p>{this.props.item.likes}</p>
+                <p>{this.props.item.likes} likes</p>
             </div>
         )
     }
