@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList'
 import axios from 'axios'
+import GalleryForm from '../GalleryForm/GalleryForm'
 
 
 class App extends Component {
@@ -53,6 +54,8 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Gallery of my life</h1>
         </header>
+        <br/>
+        <GalleryForm/>
         <br/>
         <GalleryList gallery={this.state.galleryArray} updateLike={this.putItemLikeCount}/>
       </div>
