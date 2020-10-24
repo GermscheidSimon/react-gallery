@@ -23,7 +23,7 @@ class App extends Component {
       method: 'GET',
       url: '/gallery'
         }).then( (response) => {
-          console.log('GET /gallery received', response);
+          console.log(`GET /gallery ${response.data.length} items received` );
           this.setState({ // replace galleryArray with response
             galleryArray: response.data
           });    
@@ -42,7 +42,7 @@ class App extends Component {
       console.log('PUT /gallery success', response);
       this.getGalleryArray(); // after likes updated, updated client data
     }).catch( (error) => {
-      console.log('error');
+      console.log('error', error);
       alert('failed to process request')
     })
   }
