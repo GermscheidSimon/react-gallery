@@ -1,20 +1,21 @@
-const { Component } = require("react")
-
-import react, {Component} from 'react'
+import React, {Component} from 'react'
+import GalleryItem from '../GalleryItem/GalleryItem'
 
 class GalleryList extends Component {
 
-    state = {
-        data: [
-            { /*   need a caption, img URL, and number of likes for each component  */ }
-        ]
-    }
+
+    /*  EXAMPLE DATA:: { id: 1, path: 'images/goat_small.jpg', description: 'Photo of a goat taken at Glacier National Park.', likes: 0 } */
 
     render(){
         return (
             <div>
-                {/* in here need to create a gallery item for each that i have data for passed from app js */}
+                {this.props.gallery.map( (item) => {
+                    console.log('in list map', item);
+                    
+                    return <GalleryItem item={item}/>
+                })}
             </div>
         )
     }
 }
+export default GalleryList;

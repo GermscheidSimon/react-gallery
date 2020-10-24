@@ -1,7 +1,38 @@
 import React, { Component } from 'react';
 import './App.css';
+import GalleryList from '../GalleryList/GalleryList'
+import axios from 'axios'
+
 
 class App extends Component {
+
+
+    /*  EXAMPLE DATA:: { id: 1, path: 'images/goat_small.jpg', description: 'Photo of a goat taken at Glacier National Park.', likes: 0 } */
+  state = {
+    galleryArray: []
+  }
+
+  // call /GET gallery function 
+  componentDidMount(){
+    this.getGalleryArray();
+  }
+
+  getGalleryArray = () => {
+    console.log('GET /gallery started');
+    axios({
+      method: 'GET',
+      url: '/gallery'
+        }).then( (response) => {
+          console.log('GET /gallery received', response);
+          this.setState({ // replace galleryArray with response
+            galleryArray: response.data
+          });    
+        }).catch( (error) => {
+          console.log(error); //log error
+          alert('something went wrong'); // throw an alert for user
+        });
+  }
+
   render() {
     return (
       <div className="App">
@@ -9,8 +40,7 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/>
+        <GalleryList gallery={this.state.galleryArray}/>
       </div>
     );
   }
