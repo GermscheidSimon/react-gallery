@@ -1,0 +1,12 @@
+.galItemFrame{
+    border: 1px solid black;
+    margin: 5px;
+    width: 100px;
+    display: inline-block;
+    height: 160px;
+    text-align: center;
+}
+.galItemFrame img{
+    width: 100px;
+    height: 100px;
+}
