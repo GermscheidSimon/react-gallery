@@ -12,7 +12,7 @@ class GalleryList extends Component {
                 {this.props.gallery.map( (item) => {
                     console.log('in list map', item);
                     
-                    return <GalleryItem item={item}/>
+                    return <GalleryItem item={item} updateLike={this.props.updateLike}/>
                 })}
             </div>
         )
