@@ -1,12 +1,20 @@
 .galItemFrame{
-    border: 1px solid black;
-    margin: 5px;
-    width: 100px;
+    margin-left: 10px;
+    width: 120px;
     display: inline-block;
-    height: 160px;
+    height: 200px;
     text-align: center;
+    vertical-align: top; /* really interesting interaction with img div. this is keeping itemboxs with imgages aligned with their container*/
 }
 .galItemFrame .itemBox{ /* making a class here so that the css won't change when the description is rendered */
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
+    font-size: 13px;
+    word-wrap: break-word;
+}
+p{
+    vertical-align: bottom;
+}
+button{
+    margin-top: 3px;
 }

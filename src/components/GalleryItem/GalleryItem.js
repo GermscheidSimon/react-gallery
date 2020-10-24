@@ -5,24 +5,20 @@ import './GalleryItem.css'
 class GalleryItem extends Component {
 
     state = {
-        renderImg: true
+        renderImg: true // create a default state for the render itemBox 
     }
 
-    toggleRenderState = () => {
+    toggleRenderState = () => { // when the <p> or <img> tag are clicked this will flip the state and renderitemBox will draw a different tag.
         this.setState({
             renderImg: !this.state.renderImg
         });
     }
 
-    renderitemBox = () => {
-        console.log('renderitembox');
-        
+    renderitemBox = () => {  // called to render the box. default state of the component will be the img. 
         if (this.state.renderImg) {
-            console.log('in true render img state');
-            
             return <img src={this.props.item.path} alt={this.props.item.name} className="itemBox" onClick={this.toggleRenderState}></img>
         } else {
-            return <p className="itemBox" onClick={this.toggleRenderState}>test description text</p>
+            return <div className="itemBox" onClick={this.toggleRenderState}>tesxsljflsdjflsdlfjslkdfsljdflsjdflkjsdlfjsldflksjdflksjdlfksjdlkfjslkdfjlsdfsdf sdfjsldf sldkjf</div>
         }
     }
 
