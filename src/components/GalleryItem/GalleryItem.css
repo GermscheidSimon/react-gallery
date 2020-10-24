@@ -6,7 +6,7 @@
     height: 160px;
     text-align: center;
 }
-.galItemFrame img{
+.galItemFrame .itemBox{ /* making a class here so that the css won't change when the description is rendered */
     width: 100px;
     height: 100px;
 }
