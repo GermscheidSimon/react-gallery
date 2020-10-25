@@ -51,8 +51,10 @@ router.post('/', (req, res) => {
 
 // DELETE route 
 router.delete('/:id', (req, res) =>{
+    console.log('in del request');
+    
     console.log('/gallery DELETE request for item with ID of:', req.params.id);
-    let queryText = `DELETE FROM "galleryItems" WHERE "id" = $1`
+    let queryText = `DELETE FROM galleryItems WHERE "id" = $1`
 
     pool.query(queryText, [req.params.id]).then( (response) => {
         console.log('response from server', response);

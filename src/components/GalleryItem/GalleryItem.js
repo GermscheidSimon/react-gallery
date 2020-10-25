@@ -29,6 +29,7 @@ class GalleryItem extends Component {
                 {this.renderitemBox()}
                     <button onClick={() => this.props.updateLike(this.props.item.id)}>like this image</button> {/* accessing PUT request function in App, passing in item ID */}
                 <p>{this.props.item.likes} likes</p>
+                    <button onClick={() => this.props.deleteItembyId(this.props.item.id)}>Delete</button>
             </div>
         )
     }
