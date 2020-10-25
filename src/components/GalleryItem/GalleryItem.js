@@ -22,10 +22,9 @@ class GalleryItem extends Component {
         }
     }
 
-
     render(){
         return (
-            <div className="galItemFrame" >
+            <div className="galItemFrame">
                 {this.renderitemBox()}
                     <button onClick={() => this.props.updateLike(this.props.item.id)}>like this image</button> {/* accessing PUT request function in App, passing in item ID */}
                 <p>{this.props.item.likes} likes</p>
