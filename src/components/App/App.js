@@ -40,7 +40,7 @@ class App extends Component {
       method: 'PUT',
       url: `/gallery/like/${itemID}`
     }).then( (response) => {
-      console.log('PUT /gallery success', response);
+      console.log('PUT /gallery success, status: ', response.status);
       this.getGalleryArray(); // after likes updated, updated client data
     }).catch( (error) => {
       console.log('error', error);
@@ -49,16 +49,20 @@ class App extends Component {
   }
   submitNewItem = (galItemObj) => { //galItemObj param looks like this {path: 'image url', description: 'image desription'}
 
-    if (galItemObj.path === '' || galItemObj.description === '') {
+    if (galItemObj.path === '' || galItemObj.description === '') { // prevent empty inputs or excessively long URLs
       alert('Please complete both input fields before submitting!')
       return;
+    } else if (galItemObj.path.length >= 200) {
+      alert('URL is too long. please enter a shorter path')
+      return;
     } else {
+      console.log(galItemObj.path.length );
       axios({
         method: 'POST',
         url: `/gallery`,
         data: galItemObj
       }).then( (response) => {
-        console.log(response);
+        console.log('POST request success, status:',response.status);
         this.getGalleryArray();
       }).catch( (error) => {
         console.log(error);

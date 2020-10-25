@@ -1,7 +1,7 @@
 CREATE TABLE galleryItems (
 	ID SERIAL PRIMARY KEY,
-	path varchar(120) NOT NULL,
-	description varchar(240) NOT NULL,
+	path varchar(200) NOT NULL,
+	description varchar(120) NOT NULL,
 	likes integer default 0
 );
 INSERT INTO galleryItems ("path", "description")

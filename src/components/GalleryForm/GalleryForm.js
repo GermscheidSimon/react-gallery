@@ -25,7 +25,7 @@ class GalleryForm extends Component {
                     <br/>
                     <br/>
                 <label htmlFor="picDescIn">Short description of the picture:   </label>
-                 <textarea id="picDescIn" rows="3" placeholder="Description" onChange={(event) => this.handleInputChange('description', event)}></textarea>
+                 <textarea id="picDescIn" rows="3"  maxLength="120"  placeholder="Description" onChange={(event) => this.handleInputChange('description', event)}></textarea>
                 <button onClick={() => this.props.submitNewItem(this.state.inputs)}>Add Picture</button>
             </div>
         )
