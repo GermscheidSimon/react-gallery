@@ -47,6 +47,7 @@ class App extends Component {
       alert('failed to process request')
     })
   }
+
   submitNewItem = (galItemObj) => { //galItemObj param looks like this {path: 'image url', description: 'image desription'}
 
     if (galItemObj.path === '' || galItemObj.description === '') { // prevent empty inputs
@@ -70,6 +71,19 @@ class App extends Component {
     }
   }
 
+  deleteItembyId = (itemID) => {
+    console.log('in del request');
+    axios({
+      method: 'DELETE',
+      url: `/gallery/${itemID}`
+    }).then( (response) => {
+      console.log('DELETE request success, status:', response.status);
+      this.getGalleryArray();
+    }).catch( (error) => {
+      console.log(error);
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -79,7 +93,7 @@ class App extends Component {
         <br/>
         <GalleryForm  submitNewItem={this.submitNewItem}/>
         <br/>
-        <GalleryList gallery={this.state.galleryArray} updateLike={this.putItemLikeCount}/>
+        <GalleryList gallery={this.state.galleryArray} updateLike={this.putItemLikeCount} deleteItembyId={this.deleteItembyId}/>
       </div>
     );
   }
