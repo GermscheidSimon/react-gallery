@@ -49,16 +49,21 @@ class App extends Component {
   }
   submitNewItem = (galItemObj) => { //galItemObj param looks like this {path: 'image url', description: 'image desription'}
 
-    axios({
-      method: 'POST',
-      url: `/gallery`,
-      data: galItemObj
-    }).then( (response) => {
-      console.log(response);
-      this.getGalleryArray();
-    }).catch( (error) => {
-      console.log(error);
-    });
+    if (galItemObj.path === '' || galItemObj.description === '') {
+      alert('Please complete both input fields before submitting!')
+      return;
+    } else {
+      axios({
+        method: 'POST',
+        url: `/gallery`,
+        data: galItemObj
+      }).then( (response) => {
+        console.log(response);
+        this.getGalleryArray();
+      }).catch( (error) => {
+        console.log(error);
+      });
+    }
   }
 
   render() {

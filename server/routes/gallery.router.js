@@ -31,8 +31,10 @@ router.get('/', (req, res) => {
    
 }); // END GET Route
 
+
+// POST route
 router.post('/', (req, res) => {
-    console.log(req.body);
+    console.log(req.body); // req.body looks like {path: 'URL of Picture', description: 'descrption of image'}
     let path = req.body.path
     let description = req.body.description
     let queryText = `
