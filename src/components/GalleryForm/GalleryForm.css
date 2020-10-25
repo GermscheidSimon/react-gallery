@@ -1,0 +1,18 @@
+button {
+    margin-left: 5px;
+    vertical-align: middle;
+}
+.formWrapper{
+    text-align: left;
+    margin: auto;
+    width: 40%;
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+
+textarea{
+    min-width: 100%;
+}
+button{
+    margin-top: 5px;
+}
