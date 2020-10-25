@@ -5,6 +5,7 @@ import axios from 'axios'
 import GalleryForm from '../GalleryForm/GalleryForm'
 
 
+
 class App extends Component {
 
 
@@ -12,6 +13,7 @@ class App extends Component {
   state = {
     galleryArray: []
   }
+
 
   // call /GET gallery function 
   componentDidMount(){
@@ -90,9 +92,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Gallery of my life</h1>
         </header>
-        <br/>
+           <br/>
         <GalleryForm  submitNewItem={this.submitNewItem}/>
-        <br/>
+           <br/>
         <GalleryList gallery={this.state.galleryArray} updateLike={this.putItemLikeCount} deleteItembyId={this.deleteItembyId}/>
       </div>
     );
