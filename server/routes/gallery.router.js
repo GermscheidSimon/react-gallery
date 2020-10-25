@@ -30,4 +30,8 @@ router.get('/', (req, res) => {
    
 }); // END GET Route
 
+router.post('/', (req, res) => {
+    console.log(req.body);
+})
+
 module.exports = router;

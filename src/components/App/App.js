@@ -47,6 +47,19 @@ class App extends Component {
       alert('failed to process request')
     })
   }
+  submitNewItem = (galItemObj) => { //galItemObj param looks like this {path: 'image url', description: 'image desription'}
+
+    axios({
+      method: 'POST',
+      url: `/gallery`,
+      data: galItemObj
+    }).then( (response) => {
+      console.log(response);
+      this.getGalleryArray();
+    }).catch( (error) => {
+      console.log(error);
+    });
+  }
 
   render() {
     return (
@@ -55,7 +68,7 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <GalleryForm/>
+        <GalleryForm  submitNewItem={this.submitNewItem}/>
         <br/>
         <GalleryList gallery={this.state.galleryArray} updateLike={this.putItemLikeCount}/>
       </div>
