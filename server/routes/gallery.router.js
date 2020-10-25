@@ -11,7 +11,7 @@ router.put('/like/:id', (req, res) => {
     let queryText = `UPDATE "galleryitems" SET "likes" = "likes" + 1 WHERE "id" = $1`
     pool.query(queryText,[req.params.id]).then( (response) => {
         console.log(response.rows, 'rows updated');
-        res.sendStatus(200)
+        res.sendStatus(200);
     }).catch( (error) => {
         console.log('error', error);
         res.sendStatus(500);
@@ -26,6 +26,7 @@ router.get('/', (req, res) => {
         res.send(results.rows);
     }).catch( (error) => {
         console.log(error);
+        res.sendStatus(500);
     });
    
 }); // END GET Route
@@ -39,8 +40,10 @@ router.post('/', (req, res) => {
     VALUES ($1, $2);`;
     pool.query(queryText, [path, description]).then( (response) => {
         console.log('response from server', response);
+        res.sendStatus(201);
     }).catch( (error) => {
         console.log(error);
+        res.sendStatus(500);
     });
 })
 
