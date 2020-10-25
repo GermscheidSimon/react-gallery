@@ -26,12 +26,22 @@ router.get('/', (req, res) => {
         res.send(results.rows);
     }).catch( (error) => {
         console.log(error);
-    })
+    });
    
 }); // END GET Route
 
 router.post('/', (req, res) => {
     console.log(req.body);
+    let path = req.body.path
+    let description = req.body.description
+    let queryText = `
+    INSERT INTO galleryItems ("path", "description")
+    VALUES ($1, $2);`;
+    pool.query(queryText, [path, description]).then( (response) => {
+        console.log('response from server', response);
+    }).catch( (error) => {
+        console.log(error);
+    });
 })
 
 module.exports = router;
